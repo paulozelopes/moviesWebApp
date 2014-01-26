@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href='http://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="bigBox">
+
+        <!------------ HEADER ------------->
+        <div class="topHeader">
+            <div class="headerLeft">
+                <img src="~/Content/images/logoEST.png" />
+            </div>
+            <div class="headerRight">
+                <img src="~/Content/images/movies.png" style="height: 100px" />
+            </div>
+        </div>
+
+        <!------------ NAV BAR ------------->
+        <nav class="navBar">
+            <ul class="listaLinks">
+                <li>@Html.ActionLink("Movies to See", "Index", "Home")</li>
+                <li>@Html.ActionLink("Search", "Search", "Home")</li>
+                <li>@Html.ActionLink("Movies Seen", "MoviesSeen", "Home")</li>
+            </ul>
+        </nav>
+
+        <!----------- CONTEUDO DAS VIEWS --------------------->
+        <div class="centerContent">
+            @if (TempData["feedback"] != null)
+            {
+                <p class="okFeedback">
+                    <span>@TempData["feedback"]</span>
+                    <img src="/Content/images/okImage.gif" />
+                </p>
+                <br />
+            }
+            @RenderBody()
+        </div>
+
+        <!------------ RODAPE --------------------->
+        <footer class="mainFooter">
+            <div class="footerLeft">
+                <p>Copyright &copy; Paulo Lopes & Ricardo Sá</p>
+
+            </div>
+            <div class="footerRight">
+                <p>IPCA - EST</p>
+                <p>Integração de Sistemas de Informação</p>
+            </div>
+        </footer>
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+    </div>
+</body>
+</html>

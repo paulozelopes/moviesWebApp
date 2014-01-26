@@ -1,0 +1,57 @@
+﻿@model MoviesWebApp.Models.Movie
+
+@{
+    ViewBag.Title = "Delete Movie";
+}
+
+<h2>Delete Movie</h2>
+<br />
+<h3>Are you sure you want to delete this movie?</h3>
+<br />
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>@Model.Title</legend>
+
+        <table class="printTable">
+            <tr>
+                <td style="width: 300px; vertical-align: top">
+                    <div class="display-field" style="text-align: center">
+                        <img src="@Url.Content(Model.PosterUrl)" style="width: auto; max-width:280px; height: 300px" alt="Foto"/>
+                    </div>
+                </td>
+                <td style="vertical-align: top">
+                    <div class="display-field">
+                        <strong>Movie Title: </strong>
+                        @Html.DisplayFor(model => model.Title)
+                    </div>
+                    <div class="display-field">
+                        <strong>Director: </strong>
+                        @Html.DisplayFor(model => model.Director)
+                    </div>
+                    <div class="display-field">
+                        <strong>Year: </strong>
+                        @Html.DisplayFor(model => model.Year)
+                    </div>
+                    <div class="display-field">
+                        <strong>Actors: </strong>
+                        @Html.DisplayFor(model => model.Actors)
+                    </div>
+                    <div class="display-field">
+                        <strong>IMDB Rate: </strong>
+                        @Html.DisplayFor(model => model.ImdbRate)
+                    </div>
+                    <div class="display-field">
+                        <strong>IMDB Movie ID: </strong>
+                        @Html.DisplayFor(model => model.MovieID)
+                    </div>
+                </td>
+            </tr>
+        </table>        
+    </fieldset>
+    <p style="text-align: right">
+        <input type="submit" value="Delete Movie" />
+    </p>
+}
+
+

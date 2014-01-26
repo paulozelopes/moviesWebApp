@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MoviesWebApp.Models.Movie>
+@{
+    ViewBag.Title = "Movies to see...";
+}
+
+<h2>List of movies to see</h2>
+<br />
+<table>
+    <tr>
+        <th>
+            @Html.Label("Title")
+        </th>
+        <th>
+            @Html.Label("Year")
+        </th>
+        <th>
+            @Html.Label("Director")
+        </th>
+        <th>
+            @Html.Label("IMDB Rate")
+        </th>        
+        <th></th>
+    </tr>
+
+    @foreach (var m in Model) 
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(movie => m.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(movie => m.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(movie => m.Director)
+            </td>
+            <td>
+                @Html.DisplayFor(movie => m.ImdbRate)
+            </td>
+               
+            <td>                
+                @Html.ActionLink("Details", "MovieDetails", new { movieId = m.MovieID }) |
+                @Html.ActionLink("Delete", "DeleteMovie", new { movieId = m.MovieID }) |
+                @Html.ActionLink("Rate", "RateMovie", new { movieId = m.MovieID })
+            </td>
+        </tr>
+    }
+</table>
+<p style="text-align:right">
+    @Html.ActionLink("Search New Movie", "Search", "Home")
+</p>
+
+
+

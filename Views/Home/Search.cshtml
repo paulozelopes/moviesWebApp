@@ -1,0 +1,25 @@
+﻿@model MoviesWebApp.Models.SearchModel
+@{
+    ViewBag.Title = "Search Movie";
+}
+
+<h2>Search Movie</h2>
+<br />
+@using (Html.BeginForm()) 
+{
+    <div>
+        <fieldset>
+            <legend>Search movie by name</legend>
+            <br />
+            <div class="editor-field">
+                @Html.Label("Name: ")
+                @Html.TextBoxFor(m => m.MovieName)
+            </div>
+           
+            <p style="text-align:right">
+                <input type="submit" value="Search" />
+            </p>
+        </fieldset>
+    </div>
+}
+

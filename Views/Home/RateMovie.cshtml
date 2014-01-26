@@ -1,0 +1,68 @@
+﻿@model MoviesWebApp.Models.Movie
+
+@{
+    ViewBag.Title = "RateMovie";
+}
+
+<h2>Rate Movie</h2>
+<br />
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>@Model.Title</legend>
+
+        <table class="printTable">
+            <tr>
+                <td style="width: 300px; vertical-align: top">
+                    <div class="display-field" style="text-align: center">
+                        <img src="@Url.Content(Model.PosterUrl)" style="width: auto; max-width:280px; height: 300px" alt="Foto"/>
+                    </div>
+                </td>
+                <td style="vertical-align: top">
+                    <div class="display-field">
+                        <strong>Movie Title: </strong>
+                        @Html.DisplayFor(model => model.Title)
+                    </div>
+                    <div class="display-field">
+                        <strong>Director: </strong>
+                        @Html.DisplayFor(model => model.Director)
+                    </div>
+                    <div class="display-field">
+                        <strong>Year: </strong>
+                        @Html.DisplayFor(model => model.Year)
+                    </div>
+                    <div class="display-field">
+                        <strong>Actors: </strong>
+                        @Html.DisplayFor(model => model.Actors)
+                    </div>
+                    <div class="display-field">
+                        <strong>IMDB Rate: </strong>
+                        @Html.DisplayFor(model => model.ImdbRate)
+                    </div>
+                    <div class="display-field">
+                        <strong>IMDB Movie ID: </strong>
+                        @Html.DisplayFor(model => model.MovieID)
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    
+    <fieldset>
+        <legend>My Rate</legend>
+        <br />
+        <div class="editor-field">
+            @Html.Label("Personal Rate: ")
+            @Html.TextBoxFor(model => model.MyRate)
+        </div>
+
+        <p style="text-align: right">
+            <input type="submit" value="Rate Movie" />
+        </p>
+    </fieldset>
+    
+}
+
+<p>
+    @Html.ActionLink("<< Back to list", "Index", "Home")
+</p>
